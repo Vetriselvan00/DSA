@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+# define MAX 5
+int stackarr[MAX];
+int first =-1;
+void push (int data )
+{
+    int i;
+    first +=1;
+    for(i=first;i>0;i--)
+    {
+        stackarr[i] = stackarr[i-1];
+    }
+    stackarr[0] = data;
+}
+int pop()
+{
+  int value;
+  value = stackarr[0];
+  for(int i = 0; i<first;i++)
+  {
+      stackarr[i] = stackarr[i+1];
+  }
+  first -=1;
+  return value;
+}
+void print()
+{
+    if(first == -1)
+    {
+        printf("stack overflow");
+        exit(1);
+    }
+    for(int i = 0;i<=first;i++)
+    {
+        printf("%d ",stackarr[i]);
+    }
+     printf("\n");
+}
+
+int main()
+{
+     int a,b,c,d,data;
+     int choice = 0;
+      while(choice != 3)
+     {
+      printf("1.push\n");
+      printf("2.pop\n");
+      printf("3.Trasverse stack\n");
+      printf("4.check Stack empty or full\n");
+      printf("enter your choice\n");
+      scanf("%d",&choice);
+         switch(choice)
+         {
+     case 1:
+         printf("enter the no element push ");
+         scanf("%d",&a);
+         if(a>MAX)
+        printf("Stack full\n");
+     else
+     for(int i = 1; i<=a;i++)
+     {
+          printf("enter the number to push:");
+          scanf("%d",&b);
+          push(b);
+     }
+     
+     break;
+     case 2:
+     data = pop();
+     break;
+     case 3:
+     print();
+     break;
+     }
+     }
+     return 0;
+}
