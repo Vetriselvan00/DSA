@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 # define MAX 5
 int stackarr[MAX];
 int first =-1;
@@ -24,7 +25,7 @@ int pop()
   first -=1;
   return value;
 }
-void print()
+void printstack()
 {
     if(first == -1)
     {
@@ -37,17 +38,34 @@ void print()
     }
      printf("\n");
 }
-
+bool isempty(int top)
+{
+    if(top == -1)
+        return true;
+    else
+        return false;
+}
+bool isfull(int top,int size)
+{
+    if(top == size-1)
+        return true;
+    else
+        return false;
+}
 int main()
 {
      int a,b,c,d,data;
      int choice = 0;
-      while(choice != 3)
+    int size = (sizeof(stackarr)/sizeof(stackarr[0]));
+    printf("%d",size);
+      while(choice != 6)
      {
       printf("1.push\n");
       printf("2.pop\n");
       printf("3.Trasverse stack\n");
-      printf("4.check Stack empty or full\n");
+      printf("4.check Stack is empty or not\n");
+      printf("5.check Stack is full or not\n");
+      printf("6.Exit\n");   
       printf("enter your choice\n");
       scanf("%d",&choice);
          switch(choice)
@@ -55,23 +73,39 @@ int main()
      case 1:
          printf("enter the no element push ");
          scanf("%d",&a);
-         if(a>MAX)
+         if(a > MAX)
         printf("Stack full\n");
      else
+     printf("enter the number to push:");
      for(int i = 1; i<=a;i++)
      {
-          printf("enter the number to push:");
           scanf("%d",&b);
           push(b);
      }
      
      break;
      case 2:
-     data = pop();
-     break;
+            data = pop();
+            break;
      case 3:
-     print();
-     break;
+          printstack();
+          break;
+             case 4:
+                 {
+                     if(isempty(first))
+                         printf("the stack is empty\n");
+                     else
+                         printf("the stack is not empty\n");
+                     break;
+                 }
+             case 5:
+                 {
+                     if(isfull(first,size))
+                         printf("full\n");
+                     else
+                         printf("not full\n");
+                     break;
+                 }  
      }
      }
      return 0;
