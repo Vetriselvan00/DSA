@@ -1,3 +1,4 @@
+// Online C compiler to run C program onli
 #include<stdio.h>
   int factorial(int n)
   {
@@ -32,8 +33,24 @@
    {
      if(n==0)
      return rev;
+     int digit = n%10;
+      rev = rev *10 + digit;
+     return reverse (n / 10 ,rev);
+   }
+   int prime(int n)
+   {
+   {
+       if(n<1)
+       return 0;
+       if(n%2==0)
+       return 0;
        else
-       return reverse(n/10,rev* +(n%10));
+         for (int p = 3; p * p <= n; p += 2) {
+         if (prime(p) && n % p == 0)
+             return 0;
+   }
+   }
+   return 1;
    }
  int main()
  {
@@ -76,8 +93,12 @@
       case 5:
       printf("Enter the number :");
       scanf("%d",&n);
-      //prime(n);
+      if(prime(n))
+          printf("the given number is prime \n");
+          else
+          printf("Not prime\n ");
       break;
+      
       case 6:
       printf("Enter the number: ");
       scanf("%d",&n);
@@ -86,5 +107,5 @@
       }
       }
    return 0;
-  }
+ }
      
