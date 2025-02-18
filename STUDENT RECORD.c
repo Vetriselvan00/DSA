@@ -94,7 +94,7 @@ struct student s[100];
         switch(choice)
         {
           case 1:
-          int n;
+          int i;
           total=0;
           printf("Enter the student %d name:",(i+1));
           scanf("%s",s[i].name);
