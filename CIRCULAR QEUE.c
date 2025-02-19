@@ -1,58 +1,58 @@
 #include<stdio.h>
 #include<stdbool.h>
 # define MAX 5
-int (isfull(Q))
+int r = -1, f=-1;
+int Q[MAX];
+int (isfull())
 {   
-    int f,r;
-     if(f=0  && r==MAX -1)||(r=f=-1)
+    
+     if((f=0  && r==MAX -1)||(r=f=-1)) 
      return 1;
      else
      return 0;
 }
-int (isempty(Q))
+int (isempty())
 {
     if(r=f=-1)
     return 1;
     else
     return 2;
 }
-int circular_enque(int *Q,int x)
+void circular_enque(int *Q,int x)
 {
-    if(isfulll(Q))
+    if(isfull())
         printf("Full\n");
     else
     {
         if(r==-1)
         r=f=0;
     }
-    else if(r==MAX - 1)
+     if(r==MAX - 1)
     {
          r=0;
          r++;
          Q[f] = x;
     }
     }
-int circular_deqeue(Q)
+int circular_deqeue()
 {
     if(isempty(Q))
     printf("Empty\n");
     else
     {
-        val =Q[f];
-        if(f==r);
+        if(f==r)
              f=r=-1;
-        else if(f = MAX -1)
+        else if(f == MAX -1)
              f = 0;
         else
              f++;
-    return val;   
+        return Q[f];
     }
 }
 int main()
 {
-     int Q [MAX];
-     int f = r =-1;
-     int x;
+
+     int x, val;
      int choice,total;
      while(choice!=6)
      {
@@ -76,7 +76,8 @@ int main()
               }
               case 2:
               {
-                  circular_deqeue(Q);
+                  
+                  printf("%d",circular_deqeue());
               }
               case 3:
               {
@@ -88,8 +89,8 @@ int main()
               }
               case 4:
               {
-                  if(isempty(Q));
-                  printf("Qeue is empty");
+                  if(isempty(Q))
+                  printf("Qeue is empty\n");
                   else
                   printf("Qeue if full\n");
                   break;
