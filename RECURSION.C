@@ -9,7 +9,7 @@
  }
  int fib(int n)
  {
-   if(n <= 0)
+   if(n <=1)
    return n;
    else
    return fib(n-1) + fib(n-2);
@@ -37,21 +37,16 @@
       rev = rev *10 + digit;
      return reverse (n / 10 ,rev);
    }
-   int prime(int n)
-   {
-   {
-       if(n<1)
-       return 0;
-       if(n%2==0)
-       return 0;
+   int prime(int i,int n)
+   {  
+       if(n==i)
+          return 0;
+       else if(n%i==0)
+           return 1;
        else
-         for (int p = 3; p * p <= n; p += 2) {
-         if (prime(p) && n % p == 0)
-             return 0;
+         return prime(i+1,n);
    }
-   }
-   return 1;
-   }
+   
  int main()
  {
    int base,expo;
@@ -93,7 +88,7 @@
       case 5:
       printf("Enter the number :");
       scanf("%d",&n);
-      if(prime(n))
+      if(prime(2,n)==0)
           printf("the given number is prime \n");
           else
           printf("Not prime\n ");
