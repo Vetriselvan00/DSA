@@ -140,7 +140,7 @@ int main()
    
    while(choice!=9)
    {
-         printf("\n MAIN MENU");
+         printf("\n MAIN MENU\n");
          printf("1.INSERT AT BEGINNING\n");
          printf("2.INSERT AT MID\n");
          printf("3.INSERT AT END\n");
@@ -161,12 +161,12 @@ int main()
         insert_beg(&head,a);
         break;
 
-    case 2:
+    case 3:
      printf("Enter the data:");
      scanf("%d",&a);
         insert_end(&head,a);
         break;
-    case 3:
+    case 2:
         pos=0;
      printf("Enter the location to insert:");
      scanf("%d",&pos);
@@ -177,17 +177,18 @@ int main()
     case 4:
         del_beg(&head);
         break;
-    case 5:
+    case 6:
         del_end(head);
         break;
-    case 6:
+    case 5:
         loc=0;
      printf("Enter the location to delete:");
      scanf("%d",&loc);
 
         del_mid(head,loc);
         break;
-
+    case 8:
+      ll_transverse(head);
     case 7:
     printf("Enter the target:" );
      scanf("%d\n",&target);
