@@ -189,6 +189,7 @@ int main()
         break;
     case 8:
       ll_transverse(head);
+      break;
     case 7:
     printf("Enter the target:" );
      scanf("%d\n",&target);
