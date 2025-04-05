@@ -17,15 +17,14 @@ int selection_sort(int arr[],int n)
             arr[pos] = temp;
         }
     }
+     for(int i = 0; i< n; i++)
+           printf("%d ",arr[i]);
     }
 int main()
 {
-    int arr[10] = {2,35,67,22,34,60,43,23,34,1};
+    int arr[10] = {2,35,67,22,34,60,43,23,34,76};
     int n = 10;
-    int result = selection_sort(arr,n);
-    for(int i = 0; i< n; i++)
-    {
-    printf("%d\n",arr[i]);
-    }
+    selection_sort(arr,n);
+   
     return 0;
 }
