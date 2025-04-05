@@ -13,13 +13,14 @@ int insertion_sort(int arr[],int n)
             }
             arr[j+1] = temp;
     }
-    }
+     for(int i = 0; i< n; i++)
+         printf("%d ",arr[i]);
+}
 
 int main()
 {
     int arr[10] = { 30,154,19,2,01,78,56,23,57,63};
     int n = 10;
     insertion_sort(arr,n);
-    for(int i = 0; i< n; i++)
-    printf("%d\n",arr[i]);
+   return 0;
 }
