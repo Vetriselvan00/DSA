@@ -1,112 +1,100 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
-# define MAX 5
-int stackarr[MAX];
-int first =-1;
-void push (int data )
+#define MAX 10
+void display(int stack[],int *top)
 {
-    int i;
-    first +=1;
-    for(i=first;i>0;i--)
-    {
-        stackarr[i] = stackarr[i-1];
-    }
-    stackarr[0] = data;
+	if(*top==-1)
+	 printf("STACK IS EMPTY");
+		
+	else
+	{
+		for(int i=0;i<=*top;i++)
+		{
+			printf("%d ",stack[i]);
+		}
+	}
 }
-int pop()
-{
-  int value;
-  value = stackarr[0];
-  for(int i = 0; i<first;i++)
-  {
-      stackarr[i] = stackarr[i+1];
+
+
+void push(int stack[],int *top)
+{ 
+  int value=0;
+  printf("ENTER THE VALUE TO PUSH :");
+  scanf("%d",&value);
+  if(*top==MAX-1)
+  	printf("stack is full \n");
+  else
+  { 	
+  	stack[++(*top)]=value;
+  	printf("%d IS PUSHED",value); 	
   }
-  first -=1;
-  return value;
+  printf("\n");
+  printf("In stack :");
+  display(stack,&(*top));
+  
 }
-void printstack()
+
+
+void pop(int stack[],int *top)
 {
-    if(first == -1)
-    {
-        printf("stack overflow");
-        exit(1);
-    }
-    for(int i = 0;i<=first;i++)
-    {
-        printf("%d ",stackarr[i]);
-    }
-     printf("\n");
+	if(*top==-1)
+		printf("STACK IS EMPTY");
+	else
+	{
+		printf("element removed %d",stack[*top]);
+		(*top)--;
+	}
+	printf("\n");
+	printf("In stack :");
+	display(stack,&(*top));
 }
-bool isempty(int top)
+
+
+void peak(int stack[],int *top)
 {
-    if(top == -1)
-        return true;
-    else
-        return false;
+	if(*top==-1)
+		printf("STACK IS EMPTY");
+	else
+		printf("TOP IS %d",stack[*top]);
 }
-bool isfull(int top,int size)
-{
-    if(top == size-1)
-        return true;
-    else
-        return false;
-}
+
+
 int main()
 {
-     int a,b,c,d,data;
-     int choice = 0;
-    int size = (sizeof(stackarr)/sizeof(stackarr[0]));
-    printf("%d",size);
-      while(choice != 6)
-     {
-      printf("1.push\n");
-      printf("2.pop\n");
-      printf("3.Trasverse stack\n");
-      printf("4.check Stack is empty or not\n");
-      printf("5.check Stack is full or not\n");
-      printf("6.Exit\n");   
-      printf("enter your choice\n");
-      scanf("%d",&choice);
-         switch(choice)
-         {
-     case 1:
-         printf("enter the no element push ");
-         scanf("%d",&a);
-         if(a > MAX)
-        printf("Stack full\n");
-     else
-     printf("enter the number to push:");
-     for(int i = 1; i<=a;i++)
-     {
-          scanf("%d",&b);
-          push(b);
-     }
-     
-     break;
-     case 2:
-            data = pop();
-            break;
-     case 3:
-          printstack();
-          break;
-             case 4:
-                 {
-                     if(isempty(first))
-                         printf("the stack is empty\n");
-                     else
-                         printf("the stack is not empty\n");
-                     break;
-                 }
-             case 5:
-                 {
-                     if(isfull(first,size))
-                         printf("full\n");
-                     else
-                         printf("not full\n");
-                     break;
-                 }  
-     }
-     }
-     return 0;
+	int stack[MAX];
+	int choice=0,top=-1;
+	while(1)
+	{
+		printf("\n|-------------------------------------|\n");
+		printf("|        MAIN MENU                    |\n");
+		printf("|         1.PUSH                      |\n");
+		printf("|         2.POP                       |\n");
+		printf("|         3.PEAK                      |\n");
+		printf("|         4.DISPLAY                   |\n");
+		printf("|         5.EXIT                      |\n");
+		printf("|-------------------------------------|\n");
+		printf(" ENTER YOUR CHOICE=");
+		scanf("%d",&choice);		
+		
+		switch(choice)
+		{
+			 case 1:
+			  push(stack,&top);
+			  break;
+	 		 case 2:
+			  pop(stack,&top);
+			  break;
+			 case 3:
+			 peak(stack,&top);
+			 break;
+	 		 case 4:
+			  display(stack,&top);
+			  break;
+			 case 5:
+			  printf("THANK YOU.....");
+			  return 0;
+	 		default: 
+			printf("INVALID CHOICE");
+		}
+	}
+return 0;
 }
