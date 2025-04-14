@@ -11,7 +11,7 @@ int partition(int q[],int low,int high)
         i++;
         while(q[j]>pivot)
         j--;
-        i(i<j);
+        if(i<j);
         {
             temp = i;
             i = j;
