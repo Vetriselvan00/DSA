@@ -14,7 +14,7 @@ void insert_beg(struct node **head, int x) {
 }
 
 void insert_mid(struct node **head, int x, int pos) {
-    if (pos == 0) { // Insert at the beginning
+    if (pos == 0) {
         insert_beg(head, x);
         return;
     }
@@ -65,7 +65,7 @@ void del_mid(struct node **head, int pos) {
 
     struct node *temp = *head;
 
-    if (pos == 0) { // Delete at the beginning
+    if (pos == 0) { 
         *head = temp->next;
         free(temp);
         return;
@@ -108,7 +108,7 @@ void del_end(struct node **head) {
     struct node *temp = *head;
     struct node *prev = NULL;
 
-    if (temp->next == NULL) { // If only one node exists
+    if (temp->next == NULL) { 
         free(temp);
         *head = NULL;
         return;
