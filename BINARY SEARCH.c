@@ -1,10 +1,10 @@
 #include<stdio.h>
 # define MAX 10
-int bubble_sort(int arr[],int n)
+void bubble_sort(int arr[],int n)
 {
        for(int i = 0; i<=n-1; i++)
         {
-            for(int j = 0; j<= n-1-i;j++)
+            for(int j = 0; j<  n-1-i;j++)
             {
 
                 if(arr[j] > arr[j+1])
@@ -22,7 +22,7 @@ int binary_search(int arr[],int low,int high,int target)
     int pos = -1;
     while(low<=high)
     {
-         int mid = low +  high / 2;
+         int mid = low + (high - low) / 2;
         if(arr[mid] == target)
         {
            return mid;
@@ -33,16 +33,7 @@ int binary_search(int arr[],int low,int high,int target)
             low = mid + 1;
     }
     return pos;
-
-
-
-
 }
-
-
-
-
-
 int main()
 {
 
@@ -54,7 +45,8 @@ int main()
     
     bubble_sort(arr,MAX);
     for(int i = 0; i<n; i++)
-    printf("%d\n",arr[i]);
+    printf("%d ",arr[i]);
+    printf("\n");
     
     printf("ENTER THE TARGET : ");
     scanf("%d",&t);
@@ -65,8 +57,5 @@ int main()
           printf("THE GIVEN TARGET %d in ARRAY %d",t,result);
         else
             printf("NOT IN ARRAY");
-
-
-
     return 0;
 }
