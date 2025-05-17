@@ -1,0 +1,98 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node * next;
+};
+
+struct node1{
+    int data1;
+    struct node1 *next1;
+};
+
+struct node * head = NULL;
+struct node1 *head_1 = NULL;
+
+void insert_beg(int value)
+{
+    struct node *ptr = (struct node*)malloc(sizeof(struct node));
+    ptr -> data = value;
+    ptr -> next = head;
+    head = ptr;
+}
+void display()
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp = head;
+    if(temp == NULL)
+        printf("EMPTY\n");
+    while(temp != NULL)
+    {
+        printf("%d ->",temp -> data);
+        temp = temp -> next;
+    }
+    printf("NULL");
+    printf("\n");
+}
+
+void display1()
+{
+    struct node1 *temp1 = (struct node1*)malloc(sizeof(struct node1));
+    temp1 = head_1;
+    if(temp1 == NULL)
+        printf("EMPTY\n");
+    while(temp1 != NULL)
+    {
+        printf("%d ->",temp1 -> data1);
+        temp1 = temp1 -> next1;
+    }
+    printf("NULL");
+    printf("\n");
+}
+
+void insert_beg_1(int value_1)
+{
+    struct node *ptr_1 = (struct node1*)malloc(sizeof(struct node1));
+    ptr_1 -> data1= value_1;
+    ptr_1 -> next1= head_1;
+    head_1 = ptr_1;
+}
+
+void common()
+{
+    struct node *temp = head;
+    struct node *temp1 = head_1;
+    if(temp != NULL && temp1 != NULL)
+        printf("EMPTY");
+    while(temp && temp1 != NULL)
+    {
+        
+        if(temp -> data == temp1 -> data1)
+            printf("%d ->",temp ->data);
+    }
+        temp = temp ->next;
+        temp1 = temp1 -> next1;
+    printf("\n");
+}
+int main()
+{
+    int num,value;  
+    int num1,value1;
+    printf("ENTER THE NUMBER OF NODE TO INSERT : ");
+    scanf("%d",&num);
+    for(int i = 0; i<num; i++)
+    {
+        printf("ENTER THE VALUE : ");
+        scanf("%d",&value);
+        insert_beg(value);
+    }
+    display();
+    for(int i = 0; i<num; i++)
+    {
+        printf("ENTER THE VALUE : ");
+        scanf("%d",&value1);
+        insert_beg_1(value1);
+    }
+    display();
+    common();
+}
